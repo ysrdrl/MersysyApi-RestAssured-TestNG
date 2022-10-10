@@ -141,8 +141,8 @@ public class Countries extends Login {
 
         CountryInformation ci = new Countries().new CountryInformation();
         ci.setId(id);
-        ci.setName(RandomInformation.randomName());
-        ci.setCode(RandomInformation.randomName());
+        ci.setName(countryName);
+        ci.setCode(countryCode);
 
         given()
                 .cookies(cookies)
