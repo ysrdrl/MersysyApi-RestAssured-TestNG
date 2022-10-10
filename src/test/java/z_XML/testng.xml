@@ -4,6 +4,7 @@
     <test name="Main Test">
         <classes>
             <class name="_02_Setup.Parameters.Countries"></class>
+            <class name="_02_Setup.Parameters.States"></class>
         </classes>
     </test>
 </suite>
