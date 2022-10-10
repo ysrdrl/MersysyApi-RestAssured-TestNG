@@ -4,6 +4,10 @@
     <test name="Main Test">
         <classes>
             <class name="_02_Setup.Parameters.Countries"></class>
+        </classes>
+    </test>
+    <test name="Main Test2">
+        <classes>
             <class name="_02_Setup.Parameters.States"></class>
         </classes>
     </test>
