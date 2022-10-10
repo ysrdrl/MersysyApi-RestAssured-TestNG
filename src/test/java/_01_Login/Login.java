@@ -16,7 +16,7 @@ public class Login {
      public static Cookies cookies;
 
     @BeforeClass
-    public static void login() {
+    public Cookies login() {
         baseURI = "https://demo.mersys.io/school-service/api/";
 
         LoginInformation login = new Login().new LoginInformation();
@@ -39,6 +39,7 @@ public class Login {
                         .extract().response().getDetailedCookies()
 
         ;
+        return cookies;
     }
 
 
