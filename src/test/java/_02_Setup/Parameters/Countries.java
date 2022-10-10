@@ -17,7 +17,7 @@ public class Countries extends Login {
     public void setup() {
 
         baseURI = "https://demo.mersys.io/school-service/api/";
-        Login login = new Login();
+
 
     }
 
