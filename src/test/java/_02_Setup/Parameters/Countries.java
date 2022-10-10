@@ -131,7 +131,7 @@ public class Countries extends Login {
                 .delete("countries/{globalId}")
 
                 .then()
-                .statusCode(400)
+                .statusCode(200)
 
         ;
     }
@@ -153,7 +153,7 @@ public class Countries extends Login {
                 .put("countries")
 
                 .then()
-                .statusCode(400)
+                .statusCode(200)
         ;
 
     }
