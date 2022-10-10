@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Jenkins All Test Suite">
-    <test name="Main Test">
+    <test name="Countries Test">
         <classes>
             <class name="_02_Setup.Parameters.Countries"></class>
         </classes>
     </test>
-    <test name="Main Test2">
+    <test name="States Test">
         <classes>
             <class name="_02_Setup.Parameters.States"></class>
         </classes>
