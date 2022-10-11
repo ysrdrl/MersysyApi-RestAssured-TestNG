@@ -119,7 +119,7 @@ public class Countries extends Login {
 
     }
 
-    @Test(dependsOnMethods = "deleteCountry", priority = 1)
+    @Test(dependsOnMethods = "deleteCountry")
     public void deleteCountryNegative() {
 
         given()
@@ -131,12 +131,12 @@ public class Countries extends Login {
                 .delete("countries/{globalId}")
 
                 .then()
-                .statusCode(200)
+                .statusCode(400)
 
         ;
     }
 
-    @Test(dependsOnMethods = "deleteCountry", priority = 2)
+    @Test(dependsOnMethods = "deleteCountryNegative")
     public void updateCountryNegative() {
 
         CountryInformation ci = new Countries().new CountryInformation();
@@ -153,7 +153,7 @@ public class Countries extends Login {
                 .put("countries")
 
                 .then()
-                .statusCode(200)
+                .statusCode(400)
         ;
 
     }
