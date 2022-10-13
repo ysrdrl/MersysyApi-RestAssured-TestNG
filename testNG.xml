@@ -11,4 +11,14 @@
             <class name="_02_Setup.Parameters.States"></class>
         </classes>
     </test>
+    <test name="BankAccounts Test">
+        <classes>
+            <class name="_02_Setup.Parameters.BankAccounts"></class>
+        </classes>
+    </test>
+    <test name="Document Types Test">
+        <classes>
+            <class name="_02_Setup.Parameters.DocumentTypes"></class>
+        </classes>
+    </test>
 </suite>

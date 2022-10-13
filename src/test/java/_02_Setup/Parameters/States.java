@@ -15,11 +15,6 @@ import static io.restassured.RestAssured.given;
 
 public class States extends Login {
 
-    @BeforeClass
-    public void setup() {
-        baseURI = "https://demo.mersys.io/school-service/api/";
-    }
-
     String id;
 
     @Test
@@ -27,7 +22,7 @@ public class States extends Login {
 
         Countries.CountryInformation countryInformation = new Countries().new CountryInformation();
         countryInformation.setName(RandomInformation.randomName());
-        countryInformation.setCode(RandomInformation.randomNumber());
+        countryInformation.setCode(RandomInformation.randomNumber(5));
         countryInformation.setHasState("true");
 
         id =
