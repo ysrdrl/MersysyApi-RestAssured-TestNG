@@ -21,7 +21,8 @@ public class BankAccounts extends Login {
         bai.setIban("TR" + RandomInformation.randomNumber(20));
         bai.setIntegrationCode(RandomInformation.randomNumber(2));
         bai.setName(RandomInformation.randomName());
-        bai.setSchoolId("6343bf893ed01f0dc03a509a");
+        bai.setSchoolId("6390f3207a3bcb6a7ac977f9");
+
         id =
 
                 given()
@@ -48,108 +49,16 @@ public class BankAccounts extends Login {
     String iban;
 
     @Test(dependsOnMethods = "createBankAccount")
-    public void updateBankAccount(){
-        BankAccountInformation bai=new BankAccountInformation();
+    public void updateBankAccount() {
+        BankAccountInformation bai = new BankAccountInformation();
         bai.setActive(true);
         bai.setCurrency("TRY");
-        bai.setIban("TR"+RandomInformation.randomNumber(20));
+        bai.setIban("TR" + RandomInformation.randomNumber(20));
         bai.setId(id);
         bai.setIntegrationCode(RandomInformation.randomNumber(3));
         bai.setName(RandomInformation.randomName());
-        bai.setSchoolId("6343bf893ed01f0dc03a509a");
+        bai.setSchoolId("6390f3207a3bcb6a7ac977f9");
         Response response =
-
-        given()
-                .cookies(cookies)
-                .contentType(ContentType.JSON)
-                .body(bai)
-                .log().body()
-
-
-                .when()
-                .put("bank-accounts")
-
-
-                .then()
-                .statusCode(200)
-                .extract().response();
-
-                ;
-        name = response.path("name");
-        integrationCode=response.path("integrationCode");
-        iban = response.path("iban");
-    }
-
-    @Test(dependsOnMethods = "updateBankAccount")
-    public void createBankAccountNegative() {
-        BankAccountInformation bai=new BankAccountInformation();
-        bai.setActive(true);
-        bai.setCurrency("TRY");
-        bai.setIban(iban);
-        bai.setIntegrationCode(integrationCode);
-        bai.setName(name);
-        bai.setSchoolId("6343bf893ed01f0dc03a509a");
-
-        given()
-                .cookies(cookies)
-                .contentType(ContentType.JSON)
-                .body(bai)
-
-                .when()
-                .post("bank-accounts")
-
-                .then()
-                .statusCode(400)
-                ;
-
-    }
-
-    @Test(dependsOnMethods = "createBankAccountNegative")
-    public void deleteBankAccount() {
-
-        given()
-                .cookies(cookies)
-                .pathParam("accountId",id)
-
-
-                .when()
-                .delete("bank-accounts/{accountId}")
-
-                .then()
-                .statusCode(200)
-                ;
-
-
-    }
-
-    @Test(dependsOnMethods = "deleteBankAccount")
-    public void deleteBankAccountNegative() {
-
-        given()
-                .cookies(cookies)
-                .pathParam("accountId",id)
-
-                .when()
-                .delete("bank-accounts/{accountId}")
-
-                .then()
-                .statusCode(400)
-
-                ;
-
-
-    }
-
-    @Test(dependsOnMethods = "deleteBankAccountNegative")
-    public void updateBankAccountNegative() {
-        BankAccountInformation bai=new BankAccountInformation();
-        bai.setActive(true);
-        bai.setCurrency("TRY");
-        bai.setIban("TR"+RandomInformation.randomNumber(20));
-        bai.setId(id);
-        bai.setIntegrationCode(RandomInformation.randomNumber(3));
-        bai.setName(RandomInformation.randomName());
-        bai.setSchoolId("6343bf893ed01f0dc03a509a");
 
                 given()
                         .cookies(cookies)
@@ -163,14 +72,105 @@ public class BankAccounts extends Login {
 
 
                         .then()
-                        .statusCode(400)
+                        .statusCode(200)
+                        .extract().response();
 
+        ;
+        name = response.path("name");
+        integrationCode = response.path("integrationCode");
+        iban = response.path("iban");
+    }
+
+    @Test(dependsOnMethods = "updateBankAccount")
+    public void createBankAccountNegative() {
+        BankAccountInformation bai = new BankAccountInformation();
+        bai.setActive(true);
+        bai.setCurrency("TRY");
+        bai.setIban(iban);
+        bai.setIntegrationCode(integrationCode);
+        bai.setName(name);
+        bai.setSchoolId("6390f3207a3bcb6a7ac977f9");
+
+        given()
+                .cookies(cookies)
+                .contentType(ContentType.JSON)
+                .body(bai)
+
+                .when()
+                .post("bank-accounts")
+
+                .then()
+                .statusCode(400)
+        ;
+
+    }
+
+    @Test(dependsOnMethods = "createBankAccountNegative")
+    public void deleteBankAccount() {
+
+        given()
+                .cookies(cookies)
+                .pathParam("accountId", id)
+
+
+                .when()
+                .delete("bank-accounts/{accountId}")
+
+                .then()
+                .statusCode(200)
+        ;
+
+
+    }
+
+    @Test(dependsOnMethods = "deleteBankAccount")
+    public void deleteBankAccountNegative() {
+
+        given()
+                .cookies(cookies)
+                .pathParam("accountId", id)
+
+                .when()
+                .delete("bank-accounts/{accountId}")
+
+                .then()
+                .statusCode(400)
 
         ;
 
 
     }
 
+    @Test(dependsOnMethods = "deleteBankAccountNegative")
+    public void updateBankAccountNegative() {
+        BankAccountInformation bai = new BankAccountInformation();
+        bai.setActive(true);
+        bai.setCurrency("TRY");
+        bai.setIban("TR" + RandomInformation.randomNumber(20));
+        bai.setId(id);
+        bai.setIntegrationCode(RandomInformation.randomNumber(3));
+        bai.setName(RandomInformation.randomName());
+        bai.setSchoolId("6390f3207a3bcb6a7ac977f9");
+
+        given()
+                .cookies(cookies)
+                .contentType(ContentType.JSON)
+                .body(bai)
+                .log().body()
+
+
+                .when()
+                .put("bank-accounts")
+
+
+                .then()
+                .statusCode(400)
+
+
+        ;
+
+
+    }
 
 
     public class BankAccountInformation {

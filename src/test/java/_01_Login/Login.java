@@ -17,11 +17,11 @@ public class Login {
 
     @BeforeClass
     public void login() {
-        baseURI = "https://demo.mersys.io/school-service/api/";
+        baseURI = "https://test.mersys.io/school-service/api/";
 
         LoginInformation login = new Login().new LoginInformation();
-        login.setUsername("richfield.edu");
-        login.setPassword("Richfield2020!");
+        login.setUsername("turkeyts");
+        login.setPassword("TechnoStudy123");
         login.setRememberMe("true");
 
         cookies =
@@ -32,7 +32,7 @@ public class Login {
                         .body(login)
 
                         .when()
-                        .post("https://demo.mersys.io/auth/login")
+                        .post("https://test.mersys.io/auth/login")
 
                         .then()
                         .statusCode(200)

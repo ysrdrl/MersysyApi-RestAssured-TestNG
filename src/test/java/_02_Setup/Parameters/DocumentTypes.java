@@ -22,7 +22,7 @@ public class DocumentTypes extends Login {
         dti.setDescription(RandomInformation.randomName() + "deneme");
         dti.setName(RandomInformation.randomName());
         dti.setRequired(false);
-        dti.setSchoolId("6343bf893ed01f0dc03a509a");
+        dti.setSchoolId("6390f3207a3bcb6a7ac977f9");
         dti.setUseCamere(true);
 
         id =
@@ -60,7 +60,7 @@ public class DocumentTypes extends Login {
         dti.setDescription(RandomInformation.randomName() + "deneme");
         dti.setName(RandomInformation.randomName());
         dti.setRequired(true);
-        dti.setSchoolId("6343bf893ed01f0dc03a509a");
+        dti.setSchoolId("6390f3207a3bcb6a7ac977f9");
         dti.setUseCamere(false);
         dti.setId(id);
 
